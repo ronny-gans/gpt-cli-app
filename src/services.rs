@@ -24,7 +24,6 @@ pub async fn make_connection(prompt:String)-> Result <ApiResponse,Box <dyn std::
         .send()
         .await?;
         let text=res.text().await?;
-        //println!("Raw JSON response: \n {}", text);
         let parsed=serde_json::from_str(&text)?;
     
     Ok(parsed)
